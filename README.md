@@ -2,9 +2,28 @@
 <h1 align="center">Git Repo Init (GRI)</h3>
 
 # About The Project
-Allows you to initialize and create remote repos on the Git interface of your choosing
+
+An easy way to initialize Git repos from the command line
 
 # Usage
+
+Instead of: 
+
+```shell
+echo "# hey" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Kjoedicker/gri.git
+git push -u origin main
+```
+
+You can do:
+
+```shell
+kjnix@arch gri % python3 main.py -gi github -p ./
+```
 
 ## Options
 
@@ -18,9 +37,4 @@ options:
   -gi GIT_INTERFACE, --git-interface GIT_INTERFACE
   -p PATH, --path PATH
   -v VERBOSE, --verbose VERBOSE
-```
-
-## Example
-```shell
-kjnix@arch gri % python3 main.py -gi github -p ./
 ```
