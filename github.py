@@ -30,10 +30,14 @@ class Github:
         responseData = response.json()
 
         statusCode = response.status_code
+
+        if statusCode == 404:
+            return(False, "404 error creating repo, please check access token permissions")
+    
         if statusCode != 201:
             message = responseData["message"]
             error = responseData["errors"][0]["message"]
-
+    
             return (False, f"\n\tStatus code: {statusCode}\n\tMessage: {message}\n\tError: {error}")
 
         return (responseData["clone_url"], False)
